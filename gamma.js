@@ -1,9 +1,4 @@
-if (window.DeviceOrientationEvent) {
-  window.addEventListener("deviceorientation", on_device_orientation, false);
-} else {
-  document.getElementById("c").innerHTML =
-    "Senzorii de orientare nu sunt suportați.";
-}
+window.addEventListener("deviceorientation", on_device_orientation);
 
 function on_device_orientation(evt) {
   var gamma = evt.gamma;
@@ -13,7 +8,7 @@ function on_device_orientation(evt) {
   var context = canvas.getContext("2d");
   var centru = { x: canvas.width / 2, y: canvas.height / 2 };
   var latura_patrat = 50;
-  var lungime_latura = latura_patrat + gamma; // Modificăm dimensiunea în funcție de valoarea lui Gamma
+  var lungime_latura = latura_patrat + gamma;
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.fillStyle = "#6A0888";
   context.beginPath();
